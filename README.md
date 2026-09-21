@@ -2,9 +2,21 @@
 
 ## Descripción general
 
-Este repositorio contiene el trabajo inicial de análisis y limpieza de una planilla de entregas de productos hortícolas a productores de la ciudad. El objetivo principal es transformar la información cruda en una estructura ordenada y normalizada para permitir su análisis, control y uso posterior en reportes o tableros.
+Este repositorio contiene el trabajo inicial de análisis y limpieza de una planilla de entregas de productos hortícolas a productores de la ciudad de Río Grande, Tierra del Fuego. El objetivo principal es transformar la información cruda en una estructura ordenada y normalizada para permitir su análisis, control y uso posterior en reportes o tableros.
+
+Los datos fueron obtenidos desde la Dirección de Desarrollo Agroproductivo, donde se cargan registros de entregas de distintas variedades de productos hortícolas a productores de la ciudad. La información refleja la distribución de insumos y productos vinculados a la actividad productiva local.
 
 La fuente original corresponde a la planilla "Entregas 2025", la cual presenta inconsistencias en la carga de datos, problemas de estructura y dificultades para estandarizar la información de manera uniforme.
+
+## Contexto de los datos
+
+Los datos analizados corresponden a entregas de productos hortícolas realizadas a productores de Río Grande, Tierra del Fuego. Estos registros permiten conocer qué variedades se distribuyeron, en qué período y a qué productores o instituciones se les brindó apoyo. La información es relevante para la gestión de la producción local y para el seguimiento de la actividad agroproductiva de la ciudad.
+
+La información se utiliza principalmente como insumo para la gestión del área de Desarrollo Agroproductivo y para la elaboración de informes de temporada productiva. También resulta útil para el personal administrativo y técnico que requiere evaluar la ejecución de entregas y medir la participación de los productores.
+
+## Quiénes lo utilizan
+
+Principalmente lo utilizan el personal municipal del área, tanto administrativo como técnico, que revisa y analiza los datos para gestionar la entrega de productos y mantener el control operativo. Además, la información sirve para elaborar informes de temporada productiva, permitiendo sintetizar la actividad y apoyar la toma de decisiones institucionales.
 
 ## Objetivo del proyecto
 

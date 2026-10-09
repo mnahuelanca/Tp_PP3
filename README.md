@@ -1,73 +1,100 @@
 # Proyecto de análisis de entregas hortícolas a productores
 
+Trabajo práctico de PP3 — Análisis y Exploración de Datos, centrado en los registros de entregas hortícolas a productores e instituciones de Río Grande, Tierra del Fuego.
+
 ## Descripción general
 
-Este repositorio contiene el trabajo inicial de análisis y limpieza de una planilla de entregas de productos hortícolas a productores de la ciudad de Río Grande, Tierra del Fuego. El objetivo principal es transformar la información cruda en una estructura ordenada y normalizada para permitir su análisis, control y uso posterior en reportes o tableros.
+El proyecto aborda la revisión y reorganización de información proveniente de la Dirección de Desarrollo Agroproductivo.
 
-Los datos fueron obtenidos desde la Dirección de Desarrollo Agroproductivo, donde se cargan registros de entregas de distintas variedades de productos hortícolas a productores de la ciudad. La información refleja la distribución de insumos y productos vinculados a la actividad productiva local.
+A partir de la planilla original de entregas 2025, se realizó un diagnóstico de los problemas de carga y se desarrolló una planilla maestra para registrar las entregas de 2026 con una estructura uniforme.
 
-La fuente original corresponde a la planilla "Entregas 2025", la cual presenta inconsistencias en la carga de datos, problemas de estructura y dificultades para estandarizar la información de manera uniforme.
+Actualmente se cuenta con la versión final de la planilla de esta etapa y una primera versión del dashboard, disponible en PDF. La finalización de la estructura de la planilla no implica el cierre de la carga de datos del año.
 
-## Contexto de los datos
+## Objetivo
 
-Los datos analizados corresponden a entregas de productos hortícolas realizadas a productores de Río Grande, Tierra del Fuego. Estos registros permiten conocer qué variedades se distribuyeron, en qué período y a qué productores o instituciones se les brindó apoyo. La información es relevante para la gestión de la producción local y para el seguimiento de la actividad agroproductiva de la ciudad.
+Organizar los registros de entregas para facilitar su carga, consulta y análisis, y aportar información útil para el seguimiento de la actividad agroproductiva local.
 
-La información se utiliza principalmente como insumo para la gestión del área de Desarrollo Agroproductivo y para la elaboración de informes de temporada productiva. También resulta útil para el personal administrativo y técnico que requiere evaluar la ejecución de entregas y medir la participación de los productores.
+Los principales usuarios son el personal administrativo y técnico del área, que utiliza la información para el control operativo y la elaboración de informes de temporada productiva.
 
-## Quiénes lo utilizan
+## Evolución del trabajo
 
-Principalmente lo utilizan el personal municipal del área, tanto administrativo como técnico, que revisa y analiza los datos para gestionar la entrega de productos y mantener el control operativo. Además, la información sirve para elaborar informes de temporada productiva, permitiendo sintetizar la actividad y apoyar la toma de decisiones institucionales.
+### Diagnóstico inicial
 
-## Objetivo del proyecto
+La revisión de la fuente 2025 permitió identificar:
 
-- Revisar y evaluar la calidad de la información recibida.
-- Identificar inconsistencias en la carga de datos.
-- Normalizar nombres de productores, productos y estados de inscripción.
-- Preparar una estructura de datos más simple y reutilizable para análisis.
-- Generar una base de datos maestra o planilla central que permita trabajar con registros consistentes y con validaciones más claras.
+- Variaciones en los nombres de productores y productos.
+- Registros de productos y cantidades combinados como texto.
+- Información distribuida en distintas hojas y períodos.
+- Dificultades para consolidar y analizar las entregas.
 
-## Problemas detectados en la fuente original
+Como primera instancia, se identificaron los valores únicos de productores, estados de inscripción y productos entregados para detectar casos que requerían revisión y estandarización.
 
-Durante la primera revisión de la planilla se identificaron varios puntos críticos:
+### Planilla final 2026
 
-- fallas en la estructura de carga de datos;
-- inconsistencias en los valores cargados;
-- dificultad para normalizar la información;
-- nombres y apellidos de productores con registros que requieren una segunda revisión;
-- variaciones en la forma de registrar productos entregados;
-- ausencia de una estructura uniforme para la captura de información.
+Se desarrolló una nueva estructura que separa los registros de entregas de los catálogos de productores y productos.
 
-## Primer diagnóstico realizado
+La planilla contiene las siguientes hojas:
 
-Como primera instancia, se trabajó con la identificación de valores únicos para los siguientes campos:
+| Hoja | Función |
+| --- | --- |
+| ENTREGAS | Registro de fecha, destinatario, producto, cantidad y observaciones. |
+| PRODUCTORES | Catálogo con identificador, apellido, nombre, estado de inscripción y un campo para dirección o coordenadas. |
+| PRODUCTOS | Catálogo con identificador, nombre, categoría, unidad de medida y observaciones. |
+| INICIO | Acceso al dashboard mediante un enlace. |
 
-- nombres y apellidos de productores;
-- productores inscriptos y no inscriptos;
-- productos entregados.
+La hoja ENTREGAS contiene estos campos:
 
-Esto permitió detectar la cantidad de variaciones existentes y poner foco en los casos que necesitan limpieza manual o estandarización.
-
-## Propuesta de mejora
-
-Se propone realizar una segunda etapa de limpieza para luego construir una nueva planilla maestra con una estructura más simple y consistente. La idea es reducir la carga manual y evitar errores de normalización.
-
-La nueva estructura sugerida es la siguiente:
-
+- Nº Entrega
 - Fecha
 - Productor / Institución
-- Inscripto
+- Apellido y Nombre
+- ¿Está Inscripto?
 - Producto
 - Cantidad
+- Observaciones
 
-Esta estructura permitirá trabajar con registros más claros y compatibles para análisis posterior. Además, se contempla el uso de tablas índice para administrar los valores que se utilizan en desplegables, con posibilidad de agregar o eliminar registros según corresponda.
+La selección de productores y productos se realiza mediante listas desplegables. El nombre y el estado de inscripción se recuperan mediante fórmulas desde el catálogo de productores.
+
+Cada fila registra un producto de una entrega; una misma entrega puede abarcar varias filas.
+
+## Dashboard inicial
+
+El archivo [Dash2026.pdf](Dash2026.pdf) contiene la primera versión del dashboard, organizada en dos páginas.
+
+Actualmente presenta:
+
+- Total de bandejas entregadas.
+- Comparación de cantidades por producto.
+- Distribución según el estado de inscripción.
+- Comparación de cantidades por productor.
+
+El PDF es una captura estática del dashboard. Los controles visibles en sus páginas no permiten filtrar el documento. La hoja INICIO de la planilla contiene un enlace al dashboard en línea, cuyo acceso depende de los permisos del informe.
+
+Esta versión se ampliará en próximos avances con más información y nuevas páginas de análisis.
+
+## Archivos del repositorio
+
+| Archivo | Descripción |
+| --- | --- |
+| [ENTREGAS_HORTICOLAS_2026.xlsx](ENTREGAS_HORTICOLAS_2026.xlsx) | Planilla final de esta etapa. |
+| [Dash2026.pdf](Dash2026.pdf) | Exportación del dashboard inicial. |
+| [ENTREGAS2025Google.xlsx](datos/ENTREGAS2025Google.xlsx) | Fuente utilizada para el diagnóstico inicial. |
 
 ## Estructura del repositorio
 
 ```text
 .
 ├── README.md
-├── avances.txt
-├── datos/
-│   └── (planillas y archivos de datos)
-└── ...
+├── .gitignore
+├── ENTREGAS_HORTICOLAS_2026.xlsx
+├── Dash2026.pdf
+└── datos/
+    └── ENTREGAS2025Google.xlsx
 ```
+
+## Próximos avances
+
+- Incorporar nuevas páginas y análisis al dashboard.
+- Ampliar la información presentada.
+- Actualizar el PDF con cada avance relevante.
+- Mantener la documentación alineada con los archivos disponibles.
